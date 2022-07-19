@@ -1,3 +1,22 @@
+<?php 
+if(isset($_POST['submit'])){
+    $to = "sales@vitaltechmm.com"; // this is your Email address
+    $from = $_POST['email']; // this is the sender's Email address
+    $first_name = $_POST['name'];
+    $last_name = $_POST['surname'];
+    $subject = "Form submission";
+    $subject2 = "Copy of your form submission";
+    $message = $first_name . " " . $last_name . " wrote the following:" . "\n\n" . $_POST['message'];
+    $message2 = "Here is a copy of your message " . $first_name . "\n\n" . $_POST['message'];
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+    echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
+    // You can also use header('Location: thank_you.php'); to redirect to another page.
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -379,7 +398,7 @@
 						<div class="col-sm-7" data-aos="fade-up" data-aos-offset="-500">
 							<h3 class="font-weight-medium text-dark mt-5 mt-lg-0">Contact Us!</h3>
 							<h5 class="text-dark mb-5">Fill Out The Form Below To Get In Touch With Us</h5>
-							<form id="contact" action="sendemail.php" method="POST">
+							<form id="contact" action="" method="POST">
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group">
