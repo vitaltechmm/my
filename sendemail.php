@@ -10,7 +10,7 @@ $mail = new PHPMailer(true);
 $alert = '';
 
 if(isset($_POST['submit'])){
-  $name = $_POST['name'];
+echo  $name = $_POST['name'];
   $surname = $_POST['surname'];
   $email = $_POST['email'];
   $subject = $_POST['subject'];
